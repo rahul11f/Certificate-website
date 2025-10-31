@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Kumar - Certificate Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0a0a0a;
+            --secondary-color: #1a1a1a;
+            --accent-color: #00b4d8;
+            --accent-hover: #0096c7;
+            --text-color: #f5f5f5;
+            --text-secondary: #b0b0b0;
+            --card-bg: #1e1e1e;
+            --section-padding: 5rem 0;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .logo span {
+            color: var(--text-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.1) 0%, rgba(10, 10, 10, 0.9) 100%), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a1a"/><path d="M0 0L100 100M100 0L0 100" stroke="%23000" stroke-width="1"/></svg>');
+            background-size: cover;
+            padding: 7rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 180, 216, 0.1) 0%, rgba(10, 10, 10, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 180, 216, 0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-padding);
+            background-color: var(--primary-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .about-text h2 span {
+            color: var(--accent-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(0, 180, 216, 0.1);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 180, 216, 0.3);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.2) 0%, rgba(10, 10, 10, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Certificates Section */
+        .certificates {
+            padding: var(--section-padding);
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .certificate-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 180, 216, 0.3);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--accent-color);
+            transition: transform 0.5s;
+        }
+
+        .certificate-card:hover .certificate-image {
+            transform: scale(1.05);
+        }
+
+        .certificate-content {
+            padding: 1.8rem;
+        }
+
+        .certificate-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            line-height: 1.4;
+        }
+
+        .certificate-details {
+            margin-bottom: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .certificate-details p {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .certificate-details i {
+            margin-right: 0.7rem;
+            color: var(--accent-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .certificate-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .certificate-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .certificate-link:hover {
+            color: #90e0ef;
+        }
+
+        .certificate-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 1rem;
+            color: var(--text-color);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: var(--primary-color);
+        }
+
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .certificates-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .about-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+            
+            .social-links a {
+                width: 45px;
+                height: 45px;
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Certi<span>Folio</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#certificates">Certificates</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Rahul Kumar's Professional Certificates</h1>
+            <p>A showcase of achievements, skills, and qualifications earned through dedicated learning and professional development.</p>
+            <a href="#certificates" class="btn">View Certificates</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About <span>Me</span></h2>
+                    <p>I'm Rahul Kumar, a passionate and dedicated technology professional with a strong focus on continuous learning and skill development. My journey in the tech industry has been driven by curiosity and a desire to stay at the forefront of emerging technologies.</p>
+                    <p>Through my certification journey, I've developed expertise across multiple domains including cloud computing, programming languages, AI/ML, and DevOps practices. Each certificate represents not just knowledge gained, but practical skills that I can apply to real-world challenges.</p>
+                    <p>I believe in the power of lifelong learning and am constantly seeking new opportunities to expand my knowledge and contribute to innovative projects.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">Cloud Computing</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">DevOps</span>
+                        <span class="skill-tag">AI/ML</span>
+                         <span class="skill-tag">DevOps</span>
+                          <span class="skill-tag">C Sharp</span>
+                           <span class="skill-tag">AWS & APIs</span>
+                        <span class="skill-tag">Azure-204</span>
+                         <span class="skill-tag">Git / Github</span>
+                          <span class="skill-tag">Soft Skills</span>
+                           <span class="skill-tag">Presentation Skills</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Replace with your actual image path -->
+                    <img src="rahul.JPG" alt="Rahul Kumar">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <h2 class="section-title">My <span>Certificates</span></h2>
+            <div class="certificates-grid">
+                <!-- Certificate 1 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_1.jpg" alt="Executive Briefing: Artificial Intelligence (AI) + ChatGPT" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Executive Briefing: Artificial Intelligence (AI) + ChatGPT</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Artificial Intelligence</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Kirill Eremenko</p>
+                        </div>
+                        <a href="1.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_2.jpg" alt="Ultimate AWS Certified Solutions Architect Associate 2025" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">AWS Certified Solutions Architect Associate</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Cloud Computing</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 15, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 27.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Stephane Maarek</p>
+                        </div>
+                        <a href="2.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_3.jpg" alt="Master JAVASCRIPT from Scratch: Build Real-World Projects" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Master JavaScript from Scratch</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: JavaScript Programming</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Andre Iacono, Diego Davila</p>
+                        </div>
+                        <a href="3.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_4.jpg" alt="AZ-204 Developing Solutions for Microsoft Azure" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">AZ-204: Developing Solutions for Microsoft Azure</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Azure Development</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 12, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 8 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Scott Duffy</p>
+                        </div>
+                        <a href="4.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_5.jpg" alt="Communication Fundamentals: How To Communicate Better" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Communication Fundamentals</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Communication Skills</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Life Progression Project</p>
+                        </div>
+                        <a href="5.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_6.jpg" alt="React Js for beginners in Hindi" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">React JS for Beginners in Hindi</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: React JS</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 4.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Manpreet Singh</p>
+                        </div>
+                        <a href="6.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 7 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_7.jpg" alt="Introduction to CSS - Complete Beginner to Expert Course" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Introduction to CSS</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: CSS Styling</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 18, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 4.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Laurence Svekis</p>
+                        </div>
+                        <a href="7.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 8 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_8.jpg" alt="C++ Programming - Master Class" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">C++ Programming - Master Class</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: C++ Programming</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Learn with Amine</p>
+                        </div>
+                        <a href="8.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 9 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_9.jpg" alt="jQuery Crash Course: Learn the Essentials of jQuery Fast" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">jQuery Crash Course</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: jQuery Library</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 12, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Simon Sez IT</p>
+                        </div>
+                        <a href="9.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 10 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_10.jpg" alt="Understanding APIs and RESTful APIs Crash Course" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">APIs and RESTful APIs Crash Course</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: API Development</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 18, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 43 minutes</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Kalob Taulien</p>
+                        </div>
+                        <a href="10.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 11 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_11.jpg" alt="Google Cloud Platform (GCP) Fundamentals for Beginners" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Google Cloud Platform (GCP) Fundamentals</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Google Cloud</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 12, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 5.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Janakiram MSV</p>
+                        </div>
+                        <a href="11.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 12 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_12.jpg" alt="Quick Start Guide Node JS for Beginners Getting started" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Node JS for Beginners</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Node.js</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Laurence Svekis</p>
+                        </div>
+                        <a href="12.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 13 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_13.jpg" alt="Introduction to the MongoDB" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Introduction to MongoDB</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Database</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Bogdan Stashchuk</p>
+                        </div>
+                        <a href="13.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 14 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_14.jpg" alt="The Complete SQL Bootcamp: Go from Zero to Hero" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">The Complete SQL Bootcamp</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: SQL Database</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 9 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Jose Portilla</p>
+                        </div>
+                        <a href="14.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 15 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_15.jpg" alt="Introduction to DevOps - Learn DevOps basics in 3 hours!" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Introduction to DevOps</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: DevOps</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 12, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 3 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Rick Crisci</p>
+                        </div>
+                        <a href="15.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 16 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_16.jpg" alt="Introduction to Cloud Computing" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Introduction to Cloud Computing</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Cloud Computing</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 18, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1 hour</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Xavier Corbett</p>
+                        </div>
+                        <a href="16.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 17 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_17.jpg" alt="Intro to ChatGPT and Generative AI" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Intro to ChatGPT and Generative AI</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Generative AI</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 12, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: 365 Careers</p>
+                        </div>
+                        <a href="17.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 18 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_18.jpg" alt="Smart Tips: Soft Skills for Technical Professionals" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Soft Skills for Technical Professionals</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Soft Skills</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Michael Riegel</p>
+                        </div>
+                        <a href="18.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 19 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_19.jpg" alt="Basics for Beginners: Learn C# Fundamentals by Coding" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Learn C# Fundamentals by Coding</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: C# Programming</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 13, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 5.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Mosh Hamedani</p>
+                        </div>
+                        <a href="19.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 20 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_20.jpg" alt="Java Basics for Beginners: Learn Coding with Java" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Java Basics for Beginners</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Java Programming</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Victor Gorinov</p>
+                        </div>
+                        <a href="20.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 21 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_21.jpg" alt="Intro to C Programming for Aspiring Embedded Developers" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Intro to C Programming</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: C Programming</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Low Level Learning</p>
+                        </div>
+                        <a href="21.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 22 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_22.jpg" alt="DevOps, CI/CD for Beginners" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">DevOps, CI/CD for Beginners</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: DevOps & CI/CD</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Feb 15, 2021</p>
+                            <p><i class="far fa-clock"></i> Duration: 1 hour</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: John Honal</p>
+                        </div>
+                        <a href="22.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 23 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_23.jpg" alt="Machine Learning for Absolute Beginners - Level 1" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Machine Learning for Absolute Beginners</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Machine Learning</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 19, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 4.5 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Idan Gabrieli</p>
+                        </div>
+                        <a href="23.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 24 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_24.jpg" alt="Communication Skills: Become Clear, Concise, Confident" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Communication Skills</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Communication</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1 hour</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Alex Lyon</p>
+                        </div>
+                        <a href="24.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 25 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_25.jpg" alt="Communication & Social Skills" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Communication & Social Skills</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Communication</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2020</p>
+                            <p><i class="far fa-clock"></i> Duration: 37 minutes</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: MicroLearn Ltd</p>
+                        </div>
+                        <a href="25.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 26 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_26.jpg" alt="1 Hour HTML" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">1 Hour HTML</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: HTML</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 18, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1 hour</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: John Bura</p>
+                        </div>
+                        <a href="26.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 27 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_27.jpg" alt="Presentation Skills: Master Confident Presentations" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Presentation Skills Mastery</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Presentation Skills</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 2 hours</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Chris Croft</p>
+                        </div>
+                        <a href="27.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <!-- Certificate 28 -->
+                <div class="certificate-card">
+                    <img src="Certificate images_28.jpg" alt="Basic Git and Github - essentials" class="certificate-image">
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Basic Git and GitHub Essentials</h3>
+                        <div class="certificate-details">
+                            <p><i class="fas fa-book"></i> Topic: Version Control</p>
+                            <p><i class="far fa-calendar-alt"></i> Issued: Sept 14, 2025</p>
+                            <p><i class="far fa-clock"></i> Duration: 1 hour</p>
+                            <p><i class="fas fa-user-graduate"></i> Instructor: Catalin Stefan</p>
+                        </div>
+                        <a href="28.pdf" class="certificate-link">View Certificate PDF <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/_raazrahul_" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/rahul11f" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rahul-kumar147/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/rahul11f" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Rahul Kumar - Certificate Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to current navigation item
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add subtle animation to certificate cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to certificate cards
+        document.querySelectorAll('.certificate-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
